@@ -15,6 +15,7 @@
 		041199D72818869E00287769 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041199D52818869E00287769 /* LaunchScreen.storyboard */; };
 		041199E32819647900287769 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041199E22819647900287769 /* User.swift */; };
 		041199E52819667500287769 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041199E42819667500287769 /* FriendsViewController.swift */; };
+		049AC2B5283CFDF60028F964 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049AC2B4283CFDF60028F964 /* FriendCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		041199D82818869E00287769 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		041199E22819647900287769 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		041199E42819667500287769 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		049AC2B4283CFDF60028F964 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			children = (
 				041199CE2818869C00287769 /* AuthViewController.swift */,
 				041199E42819667500287769 /* FriendsViewController.swift */,
+				049AC2B4283CFDF60028F964 /* FriendCell.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				041199E32819647900287769 /* User.swift in Sources */,
+				049AC2B5283CFDF60028F964 /* FriendCell.swift in Sources */,
 				041199E52819667500287769 /* FriendsViewController.swift in Sources */,
 				041199CF2818869C00287769 /* AuthViewController.swift in Sources */,
 				041199CB2818869C00287769 /* AppDelegate.swift in Sources */,
