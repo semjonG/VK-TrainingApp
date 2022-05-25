@@ -30,17 +30,16 @@ class FriendCell: UITableViewCell {
         // нельзя устанавливать констрейнты, пока на вью не добавлен элемент
         NSLayoutConstraint.activate([
             
-            // допилить
             photoImageView.widthAnchor.constraint(equalToConstant: 100),
             photoImageView.heightAnchor.constraint(equalToConstant: 100),
-            
+            photoImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
+            photoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            photoImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
             
             nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            nameLabel.rightAnchor
-            
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
-            tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 0),
-            tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: 0)
+            nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+            nameLabel.leftAnchor.constraint(equalTo: photoImageView.rightAnchor, constant: 20),
+            nameLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20)
         ])
     }
     

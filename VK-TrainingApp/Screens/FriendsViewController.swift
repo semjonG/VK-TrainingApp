@@ -58,9 +58,6 @@ extension FriendsViewController: UITableViewDataSource {
         cell.textLabel?.text = "Hello"
         return cell
     }
-    
-    
-    
 }
 
 
