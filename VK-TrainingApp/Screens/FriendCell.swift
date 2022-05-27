@@ -9,18 +9,26 @@ import UIKit
 
 class FriendCell: UITableViewCell {
     
+    static let identifier = "FriendCell"
+    
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0 // зачем?
+        label.lineBreakMode = .byWordWrapping // ??
         return label
     }()
     
     lazy var photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.cornerRadius = 25
+        imageView.clipsToBounds = true // чтобы вписать вью в сабвью?
+        
         return imageView
     }()
     
+    // MARK: - Lifecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -32,6 +40,15 @@ class FriendCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     // MARK: - Private
     
