@@ -9,7 +9,7 @@ import UIKit
 
 class FriendCell: UITableViewCell {
     
-    static let identifier = "FriendCell"
+    static let identifier = "FriendCell" // зачем? если мы прописали идентификатор в FriendsViewController как "cell"
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
@@ -24,7 +24,6 @@ class FriendCell: UITableViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 25
         imageView.clipsToBounds = true // чтобы вписать вью в сабвью?
-        
         return imageView
     }()
     
@@ -39,6 +38,15 @@ class FriendCell: UITableViewCell {
     // запасной инициализатор
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Public
+    func configure(_ friend: Friend) {
+        self.photoImageView.sd_setImage(with: URL(string: friend.photo100), completed: nil)
+        
+        self.photoImageView.contentMode = .scaleAspectFill
+        
+        self.nameLabel.text = "\(friend.firstName) \(friend.lastName) \(friend.city?.title ?? "")"
     }
     
     

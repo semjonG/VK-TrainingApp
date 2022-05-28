@@ -7,9 +7,16 @@
 
 import UIKit
 
+struct Friend {
+    var name: String
+    var address: String
+}
+
 class FriendsViewController: UIViewController {
     
-    lazy var tableView: UITableView = {
+    var friends: [Friend] = []
+    
+    private lazy var tableView: UITableView = {
         let tableView = UITableView()
         
         
@@ -42,20 +49,23 @@ class FriendsViewController: UIViewController {
 }
 
 extension FriendsViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("нажатие", indexPath.row)
+    }
 }
 
 extension FriendsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return friends.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: "cell",
-            for: indexPath)
-        cell.textLabel?.text = "Hello"
+        let cell: FriendCell = tableView.dequeueReusableCell(withIdentifier: FriendCell.identifier, for: indexPath) as! FriendCell
+
+        let friend = friends[indexPath.row]
+        cell.configure(friend)
+        
         return cell
     }
 }
