@@ -7,12 +7,10 @@
 
 import UIKit
 
-struct Friend {
-    var name: String
-    var address: String
-}
-
 class FriendsViewController: UIViewController {
+    
+    // inject service with vareable. внедрили зависимость в контроллер (переменная сервиса) через сильную ссылку
+    var friendsAPI = FriendsAPI()
     
     var friends: [Friend] = []
     
@@ -24,7 +22,7 @@ class FriendsViewController: UIViewController {
         //
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(FriendCell.self, forCellReuseIdentifier: FriendCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -32,19 +30,31 @@ class FriendsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.addSubview(tableView)
+        setupViews()
+        fetchFriends()
+    }
+    
+    private func setupViews() {
         
-        NSLayoutConstraint.activate([
-            
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
-            tableView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 0),
-            tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: 0)
-        ])
-        
-        print(User.shared)
-        print(User.shared.token)
-        print(User.shared.userID)
+        self.view.addSubview(tableView) // на рут вью кладем тейбл вью
+        tableView.pinEdgesToSuperView()
+    }
+    
+    private func fetchFriends() {
+        // closure, лежащий в параметре функции - колл бэк (обратный вызов функции)
+        friendsAPI.fetchFriends { result in
+            switch result {
+                
+#warning("разобрать паттерн matching в switch, case let in switch")
+                
+            case .success(let friends):
+                self.friends = friends
+                self.tableView.reloadData()
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
 
@@ -69,5 +79,6 @@ extension FriendsViewController: UITableViewDataSource {
         return cell
     }
 }
+
 
 

@@ -50,6 +50,7 @@ class AuthViewController: UIViewController, WKNavigationDelegate {
         URLQueryItem(name: "redirect_uri", value: "https://oath.vk.com/blank.html"),
         URLQueryItem(name: "scope", value: "271366"),
         URLQueryItem(name: "response_type", value: "token"),
+        URLQueryItem(name: "revoke", value: "1"),
         URLQueryItem(name: "v", value: "5.131"),
         URLQueryItem(name: "state", value: "1"),
         ]
@@ -87,9 +88,9 @@ class AuthViewController: UIViewController, WKNavigationDelegate {
               let userID = paramsDictionary?["user_id"],
               let expiresIn = paramsDictionary?["expires_in"] else { return }
         
-        User.shared.token = token
-        User.shared.expiresIn = expiresIn
-        User.shared.userID = userID
+        Session.shared.token = token
+        Session.shared.expiresIn = Int(expiresIn) ?? 0
+        Session.shared.userID = Int(userID) ?? 0
         
         performSegue(withIdentifier: "showFriendsSegue", sender: nil)
         
