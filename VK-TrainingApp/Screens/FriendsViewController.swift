@@ -22,6 +22,7 @@ class FriendsViewController: UIViewController {
         //
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorColor = UIColor.clear
         tableView.register(FriendCell.self, forCellReuseIdentifier: FriendCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
