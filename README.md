@@ -16,6 +16,6 @@ More features coming soon! 👽
   </tr>
   <tr>
     <td><img src="https://raw.githubusercontent.com/semjonG/VK-TrainingApp/main/1.png"></td>
-    
+    <td><img src="https://raw.githubusercontent.com/semjonG/VK-TrainingApp/main/friendsScreen11.png"></td>
   </tr>
   <tr>
