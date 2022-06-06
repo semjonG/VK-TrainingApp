@@ -9,3 +9,13 @@ More features coming soon! 👽
 - UIKit + WebKit
   
   <img width="256" alt="example" src="https://github.com/semjonG/VK-TrainingApp/blob/main/1.png?raw=true"><br>
+ <table>
+  <tr>
+    <td>Authorization</td>
+    <td>Friends and city</td>
+  </tr>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/semjonG/VK-TrainingApp/main/1.png"></td>
+    <td><img src="https://raw.githubusercontent.com/semjonG/VK-TrainingApp/main/friendsScreen.png"></td>
+  </tr>
+  <tr>
