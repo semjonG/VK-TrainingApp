@@ -37,28 +37,11 @@
                     <navigationItem key="navigationItem" id="uTz-6h-0zh"/>
                     <connections>
                         <outlet property="webView" destination="m24-Fx-81R" id="MWL-uq-Rta"/>
-                        <segue destination="8nw-Cw-SfC" kind="show" identifier="showFriendsSegue" id="Kec-Cf-qSQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1031.8840579710145" y="109.82142857142857"/>
-        </scene>
-        <!--Friends View Controller-->
-        <scene sceneID="anI-D9-Ads">
-            <objects>
-                <viewController id="8nw-Cw-SfC" customClass="FriendsViewController" customModule="VK_TrainingApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="d31-wk-4mt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="FaA-Y0-i2W"/>
-                        <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="5ta-CH-UpR"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Nn-Kx-FgL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1797.1014492753625" y="109.82142857142857"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PBx-AJ-lld">

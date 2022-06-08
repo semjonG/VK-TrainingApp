@@ -10,7 +10,7 @@ import SDWebImage
 
 class FriendCell: UITableViewCell {
     
-    static let identifier = "FriendCell" // зачем? если мы прописали идентификатор в FriendsViewController как "cell"
+    static let identifier = "FriendCell" // зачем? если мы прописали идентификатор в FriendsVC как "cell"
         
     lazy var backView: UIView = {
         let view = UIView(frame: CGRect(x: 10, y: 6, width: self.frame.width + 50, height: 130))
@@ -48,22 +48,22 @@ class FriendCell: UITableViewCell {
     }
     
 
-    // MARK: - shadow of the cell
+    // MARK: - cell shadow
     override func layoutSubviews() {
         contentView.backgroundColor = UIColor.clear
         backgroundColor = UIColor.clear
         backView.layer.cornerRadius = 25
         backView.clipsToBounds = true
         
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.5
+        layer.shadowColor = UIColor.gray.cgColor
+        layer.shadowOpacity = 0.3
         layer.shadowOffset = .zero
     }
     
     // MARK: - Public
     func configure(_ friend: Friend) {
         
-        self.photoImageView.sd_setImage(with: URL(string: friend.photo100 ?? ""), completed: nil)
+        self.photoImageView.sd_setImage(with: URL(string: friend.photo50 ?? ""), completed: nil)
 
         self.photoImageView.contentMode = .scaleAspectFill
 
@@ -74,7 +74,6 @@ class FriendCell: UITableViewCell {
     
     private func setupViews() {
         // рутовая view у ячеек - contentView
-        contentView.addSubview(backView)
         contentView.addSubview(backView)
         contentView.addSubview(nameLabel)
         contentView.addSubview(photoImageView)

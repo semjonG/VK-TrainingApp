@@ -92,7 +92,8 @@ class AuthViewController: UIViewController, WKNavigationDelegate {
         Session.shared.expiresIn = Int(expiresIn) ?? 0
         Session.shared.userID = Int(userID) ?? 0
         
-        performSegue(withIdentifier: "showFriendsSegue", sender: nil)
+        let tabBarController = TabBarController()
+        navigationController?.pushViewController(tabBarController, animated: true)
         
         decisionHandler(.cancel)
     }

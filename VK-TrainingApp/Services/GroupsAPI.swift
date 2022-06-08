@@ -1,26 +1,23 @@
 //
-//  FriendsAPI.swift
+//  GroupsAPI.swift
 //  VK-TrainingApp
 //
-//  Created by mac on 04.06.2022.
+//  Created by mac on 08.06.2022.
 //
 
 import Foundation
 
-class FriendsAPI {
+class GroupsAPI {
     
-    func fetchFriends(offset: Int = 0, completion: @escaping (Result<[Friend], Error>) -> ()) {
-        
+    func fetchGroups(completion: @escaping (Result<[Group], Error>) -> ()) {
         var components = URLComponents()
         components.scheme = "HTTPS"
         components.host = "api.vk.com"
-        components.path = "/method/friends.get"
+        components.path = "/method/groups.get"
         components.queryItems = [
             URLQueryItem(name: "user_id", value: "\(Session.shared.userID)"),
-            URLQueryItem(name: "order", value: "random"),
-            URLQueryItem(name: "count", value: "20"),
-            URLQueryItem(name: "offset", value: "\(offset)"), // грузим друзей с нулевого индекса, подставляя 20 - будем начинать с 20го друга
-            URLQueryItem(name: "fields", value: "bdate, city, education, nickname, online, photo_50, photo_100, relation, sex"),
+            URLQueryItem(name: "extended", value: "1"),
+            URLQueryItem(name: "offset", value: "0"),
             URLQueryItem(name: "access_token", value: "\(Session.shared.token)"),
             URLQueryItem(name: "v", value: "5.131")
         ]
@@ -31,6 +28,7 @@ class FriendsAPI {
         urlRequest.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            // data - JSON, завернутый в бинарник (вытаскиваем из body-тела ответа)
             
             print(data?.prettyPrintedJSONString)
             
@@ -38,18 +36,16 @@ class FriendsAPI {
             
             let decoder = JSONDecoder()
             do {
-                let friendsResponse = try decoder.decode(FriendsResponse.self, from: data)
-                let friends = friendsResponse.response?.items ?? []
+                let groupsResponse = try decoder.decode(GroupsResponse.self, from: data)
+                let groups = groupsResponse.response?.items ?? []
                 
                 DispatchQueue.main.async {
-                    completion(.success(friends))
+                    completion(.success(groups))
                 }
                 
             } catch {
                 completion(.failure(error))
             }
-        }.resume() // запуск запроса
+        }.resume()
     }
 }
-
-

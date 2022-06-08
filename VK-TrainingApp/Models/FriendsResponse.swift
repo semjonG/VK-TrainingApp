@@ -12,20 +12,18 @@ import Foundation
 //
 //   let friendsResponse = try? newJSONDecoder().decode(FriendsResponse.self, from: jsonData)
 
-import Foundation
-
 // MARK: - FriendsResponse
 struct FriendsResponse: Codable {
     let response: FriendItems?
 }
 
-// MARK: - Response
+// MARK: - FriendItems
 struct FriendItems: Codable {
     let count: Int?
     let items: [Friend]?
 }
 
-// MARK: - Item
+// MARK: - Friend
 struct Friend: Codable {
     let id: Int?
     let isClosed: Bool?
@@ -35,6 +33,7 @@ struct Friend: Codable {
     let bdate: String?
     let city: City?
     let firstName, nickname: String?
+    let photo50: String?
     let photo100: String?
     let online: Int?
     let lastName: String?
@@ -54,6 +53,7 @@ struct Friend: Codable {
         case bdate, city
         case firstName = "first_name"
         case nickname
+        case photo50 = "photo_50"
         case photo100 = "photo_100"
         case online
         case lastName = "last_name"
