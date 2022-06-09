@@ -1,8 +1,8 @@
 # VK-TrainingApp
 
-This is a test social-media application with VK (rus social media) API, that I'm creating now. I will add new features, learning new technologies as I go. 
+This is a test social-media application with VK (rus social network) API, that I'm creating now. I will add new features, learning new technologies as I go. 
 
-More features coming soon! 👽
+More features coming soon! 🚀
 
 ## Done
 - MVC
