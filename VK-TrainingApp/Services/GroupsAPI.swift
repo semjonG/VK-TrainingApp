@@ -9,7 +9,7 @@ import Foundation
 
 class GroupsAPI {
     
-    func fetchGroups(completion: @escaping (Result<[Group], Error>) -> ()) {
+    func fetchGroups(offset: Int = 0, completion: @escaping (Result<[Group], Error>) -> ()) {
         var components = URLComponents()
         components.scheme = "HTTPS"
         components.host = "api.vk.com"
@@ -17,7 +17,7 @@ class GroupsAPI {
         components.queryItems = [
             URLQueryItem(name: "user_id", value: "\(Session.shared.userID)"),
             URLQueryItem(name: "extended", value: "1"),
-            URLQueryItem(name: "offset", value: "0"),
+            URLQueryItem(name: "offset", value: "\(offset)"), // загружаем группы с нулевого индекса, подставляя 20 - будем начинать с 20ой группы
             URLQueryItem(name: "access_token", value: "\(Session.shared.token)"),
             URLQueryItem(name: "v", value: "5.131")
         ]

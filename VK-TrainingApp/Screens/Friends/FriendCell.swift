@@ -63,7 +63,7 @@ class FriendCell: UITableViewCell {
     // MARK: - Public
     func configure(_ friend: Friend) {
         
-        self.photoImageView.sd_setImage(with: URL(string: friend.photo50 ?? ""), completed: nil)
+        self.photoImageView.sd_setImage(with: URL(string: friend.photo100 ?? ""), completed: nil)
 
         self.photoImageView.contentMode = .scaleAspectFill
 
