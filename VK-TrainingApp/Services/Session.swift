@@ -16,6 +16,4 @@ final class Session {
     var userID: Int = 0
     var token: String = ""
     var expiresIn: Int = 0 // unix time
-    
-    #warning("изучить юникстайм в свифт")
 }

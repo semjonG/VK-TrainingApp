@@ -50,8 +50,6 @@ class FriendsVC: UIViewController {
         friendsAPI.fetchFriends(offset: offset) { result in
             switch result {
                 
-#warning("разобрать паттерн matching в switch, case let in switch")
-                
             case .success(let friends):
                 self.friends = friends
                 self.tableView.reloadData()

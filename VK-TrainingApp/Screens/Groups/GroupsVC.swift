@@ -45,8 +45,6 @@ class GroupsVC: UIViewController {
         groupsAPI.fetchGroups { result in
             switch result {
                 
-#warning("разобрать паттерн matching в switch, case let in switch")
-                
             case .success(let groups):
                 self.groups = groups
                 self.tableView.reloadData()

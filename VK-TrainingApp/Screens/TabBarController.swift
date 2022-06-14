@@ -11,8 +11,10 @@ final class TabBarController: UITabBarController {
     
     private let friendsVC = FriendsVC()
     private let groupsVC = GroupsVC()
+    private let photosVC = PhotosVC()
     private let friendsTabBar = UITabBarItem()
     private let groupsTabBar = UITabBarItem()
+    private let photosTabBar = UITabBarItem()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +24,15 @@ final class TabBarController: UITabBarController {
         
         groupsVC.tabBarItem.image = UIImage(systemName: "person.3")
         groupsVC.tabBarItem.title = "Communities"
+        
+        photosVC.tabBarItem.image = UIImage(systemName: "photo")
+        photosVC.tabBarItem.title = "Photos"
+        
         let navigationFriendsVC = UINavigationController(rootViewController: friendsVC)
         let navigationGroupsVC = UINavigationController(rootViewController: groupsVC)
+        let navigationPhotosVC = UINavigationController(rootViewController: photosVC)
         
-        let controllers = [navigationFriendsVC, navigationGroupsVC]
+        let controllers = [navigationFriendsVC, navigationGroupsVC, navigationPhotosVC]
         self.viewControllers = controllers
     }
 }

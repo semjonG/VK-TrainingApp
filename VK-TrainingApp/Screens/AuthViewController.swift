@@ -95,6 +95,8 @@ class AuthViewController: UIViewController, WKNavigationDelegate {
         let tabBarController = TabBarController()
         navigationController?.pushViewController(tabBarController, animated: true)
         
+        navigationController?.isNavigationBarHidden = true
+        
         decisionHandler(.cancel)
     }
 }

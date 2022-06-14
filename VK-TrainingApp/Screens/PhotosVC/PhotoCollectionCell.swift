@@ -1,17 +1,16 @@
 //
-//  FriendCell.swift
+//  PhotoCollectionCell.swift
 //  VK-TrainingApp
 //
-//  Created by mac on 24.05.2022.
+//  Created by mac on 14.06.2022.
 //
 
 import UIKit
 import SDWebImage
 
-class FriendCell: UITableViewCell {
+class PhotoCollectionCell: UICollectionViewCell {
+    static let identifier = "PhotoCollectionCell"
     
-    static let identifier = "FriendCell" // зачем? если мы прописали идентификатор в FriendsVC как "cell"
-        
     lazy var backView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -19,25 +18,26 @@ class FriendCell: UITableViewCell {
         return view
     }()
     
-    lazy var nameLabel: UILabel = {
+    lazy var likeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0 // зачем?
-        label.lineBreakMode = .byWordWrapping // ??
+        label.numberOfLines = 1
         return label
     }()
     
     lazy var photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.cornerRadius = 50
-        imageView.clipsToBounds = true // чтобы вписать вью в сабвью?
+        imageView.layer.cornerRadius = 20
+        imageView.clipsToBounds = true
+        self.photoImageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
+ 
     // MARK: - Lifecycle
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
 
         setupViews()
         setupConstraints()
@@ -61,13 +61,14 @@ class FriendCell: UITableViewCell {
     }
     
     // MARK: - Public
-    func configure(_ friend: Friend) {
+    // тут ссылки на данные
+    func configure(_ photo: Photo) {
         
-        self.photoImageView.sd_setImage(with: URL(string: friend.photo100 ?? ""), completed: nil)
+//        self.photoImageView.sd_setImage(with: URL(string: photo.photo100 ?? ""), completed: nil)
+        
+        self.photoImageView.image = UIImage(named: "testPic")
 
-        self.photoImageView.contentMode = .scaleAspectFill
-
-        self.nameLabel.text = "\(friend.firstName ?? "") \(friend.lastName ?? "")  \(friend.city?.title ?? "")"
+        self.likeLabel.text = "❤️ 100"
     }
     
     // MARK: - Private
@@ -75,12 +76,12 @@ class FriendCell: UITableViewCell {
     private func setupViews() {
         // рутовая view у ячеек - contentView
         contentView.addSubview(backView)
-        contentView.addSubview(nameLabel)
+        contentView.addSubview(likeLabel)
         contentView.addSubview(photoImageView)
     }
     
     private func setupConstraints() {
-        backView.pinEdgesToSuperView(top: 10, bottom: 10, left: 20, right: 20)
+        backView.pinEdgesToSuperView(top: 0, bottom: 0, left: 0, right: 0)
         
         NSLayoutConstraint.activate([
             
@@ -96,4 +97,5 @@ class FriendCell: UITableViewCell {
             nameLabel.rightAnchor.constraint(equalTo: backView.rightAnchor, constant: -20)
         ])
     }
+    
 }
