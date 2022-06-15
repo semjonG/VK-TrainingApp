@@ -91,11 +91,10 @@ class PhotoCollectionCell: UICollectionViewCell {
             photoImageView.topAnchor.constraint(equalTo: backView.topAnchor, constant: 20),
             photoImageView.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -20),
             
-            nameLabel.topAnchor.constraint(equalTo: backView.topAnchor, constant: 20),
-            nameLabel.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -20),
-            nameLabel.leftAnchor.constraint(equalTo: photoImageView.rightAnchor, constant: 20),
-            nameLabel.rightAnchor.constraint(equalTo: backView.rightAnchor, constant: -20)
+            likeLabel.topAnchor.constraint(equalTo: backView.topAnchor, constant: 20),
+            likeLabel.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -20),
+            likeLabel.leftAnchor.constraint(equalTo: photoImageView.rightAnchor, constant: 20),
+            likeLabel.rightAnchor.constraint(equalTo: backView.rightAnchor, constant: -20)
         ])
     }
-    
 }

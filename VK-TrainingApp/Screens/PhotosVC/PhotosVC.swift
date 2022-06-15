@@ -44,17 +44,24 @@ class PhotosVC: UIViewController {
 }
 
 extension PhotosVC: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        collectionView.deselectItem(at: indexPath, animated: true)
+        print("нажатие", indexPath.row)
+    }
 }
 
 extension PhotosVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return photosArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionCell.identifier, for: indexPath) as! PhotoCollectionCell
+        
+        let photo = photosArray[indexPath.row]
+        cell.configure(photo)
+//        cell.setImage(photos[indexPath.row].photoBig)
+        return cell
     }
-    
-    
 }
