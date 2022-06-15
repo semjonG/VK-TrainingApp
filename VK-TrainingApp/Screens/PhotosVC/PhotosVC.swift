@@ -39,7 +39,6 @@ class PhotosVC: UIViewController {
                 print("cant append pics to array")
             }
         }
-        
     }
 }
 
@@ -61,7 +60,6 @@ extension PhotosVC: UICollectionViewDataSource {
         
         let photo = photosArray[indexPath.row]
         cell.configure(photo)
-//        cell.setImage(photos[indexPath.row].photoBig)
         return cell
     }
 }

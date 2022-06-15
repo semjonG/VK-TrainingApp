@@ -34,6 +34,13 @@ struct Photo: Codable {
     let hasTags: Bool?
     let likes: Likes?
     let reposts: Reposts?
+    var photoURL: String? {
+        if let sizes = sizes, let size = sizes.first(where: { $0.type == "x" }) {
+            return size.url
+        }
+        
+        return nil
+    }
 
     enum CodingKeys: String, CodingKey {
         case albumID = "album_id"

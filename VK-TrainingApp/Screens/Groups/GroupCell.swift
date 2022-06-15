@@ -13,7 +13,7 @@ class GroupCell: UITableViewCell {
     static let identifier = "GroupCell"
 
     lazy var backView: UIView = {
-        let view = UIView(frame: CGRect(x: 10, y: 6, width: self.frame.width + 50, height: 130))
+        let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor.white
         return view
@@ -31,7 +31,7 @@ class GroupCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 50
-        imageView.clipsToBounds = true // чтобы вписать вью в сабвью?
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -80,20 +80,20 @@ class GroupCell: UITableViewCell {
     }
     
     private func setupConstraints() {
-        
+        backView.pinEdgesToSuperView(top: 10, bottom: 10, left: 20, right: 20)
         // нельзя устанавливать констрейнты, пока на вью не добавлен элемент
         NSLayoutConstraint.activate([
             
             logoImageView.widthAnchor.constraint(equalToConstant: 100),
             logoImageView.heightAnchor.constraint(equalToConstant: 100),
-            logoImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 25),
-            logoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            logoImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+            logoImageView.leftAnchor.constraint(equalTo: backView.leftAnchor, constant: 25),
+            logoImageView.topAnchor.constraint(equalTo: backView.topAnchor, constant: 20),
+            logoImageView.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -20),
             
-            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+            nameLabel.topAnchor.constraint(equalTo: backView.topAnchor, constant: 20),
+            nameLabel.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -20),
             nameLabel.leftAnchor.constraint(equalTo: logoImageView.rightAnchor, constant: 20),
-            nameLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20)
+            nameLabel.rightAnchor.constraint(equalTo: backView.rightAnchor, constant: -20)
         ])
     }
 }

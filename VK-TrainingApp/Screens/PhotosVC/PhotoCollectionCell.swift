@@ -64,9 +64,11 @@ class PhotoCollectionCell: UICollectionViewCell {
     // тут ссылки на данные
     func configure(_ photo: Photo) {
         
-//        self.photoImageView.sd_setImage(with: URL(string: photo.photo100 ?? ""), completed: nil)
+//        self.photoImageView.sd_setImage(with: URL(string: photo.sizes?.first?.url ?? ""), completed: nil)
         
-        self.photoImageView.image = UIImage(named: "testPic")
+        self.photoImageView.sd_setImage(with: URL(string: photo.photoURL ?? ""), completed: nil)
+
+//        self.photoImageView.image = UIImage(named: "testPic")
 
         self.likeLabel.text = "❤️ 100"
     }

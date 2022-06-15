@@ -10,7 +10,7 @@ import SDWebImage
 
 class FriendCell: UITableViewCell {
     
-    static let identifier = "FriendCell" // зачем? если мы прописали идентификатор в FriendsVC как "cell"
+    static let identifier = "FriendCell"
         
     lazy var backView: UIView = {
         let view = UIView()
@@ -22,8 +22,8 @@ class FriendCell: UITableViewCell {
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0 // зачем?
-        label.lineBreakMode = .byWordWrapping // ??
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
@@ -31,7 +31,7 @@ class FriendCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 50
-        imageView.clipsToBounds = true // чтобы вписать вью в сабвью?
+        imageView.clipsToBounds = true
         return imageView
     }()
     
