@@ -130,11 +130,11 @@
 		041199E028188B6100287769 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				0469701D2858F2390030EA20 /* PhotosVC */,
 				041199CE2818869C00287769 /* AuthViewController.swift */,
 				0494C1302850E87A006E0AEB /* TabBarController.swift */,
 				0494C1382850F356006E0AEB /* Friends */,
 				0494C1392850F368006E0AEB /* Groups */,
+				0469701D2858F2390030EA20 /* PhotosVC */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
