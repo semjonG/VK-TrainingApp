@@ -12,6 +12,7 @@ More features coming soon! 🚀
 - SDWebImage
 - Programmatically
   
+  
     <table>
   <tr>
     <td>Authorization (WebKit)</td>
