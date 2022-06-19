@@ -22,15 +22,16 @@ class PhotoCollectionCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
+//        label.backgroundColor = .systemBackground
         return label
     }()
     
     lazy var photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.cornerRadius = 20
+        imageView.layer.cornerRadius = 8
         imageView.clipsToBounds = true
-        self.photoImageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
@@ -48,29 +49,25 @@ class PhotoCollectionCell: UICollectionViewCell {
     }
     
 
-    // MARK: - cell shadow
+    // MARK: - cell shadow settings
     override func layoutSubviews() {
         contentView.backgroundColor = UIColor.clear
         backgroundColor = UIColor.clear
-        backView.layer.cornerRadius = 25
+        backView.layer.cornerRadius = 8
         backView.clipsToBounds = true
         
-        layer.shadowColor = UIColor.gray.cgColor
-        layer.shadowOpacity = 0.3
-        layer.shadowOffset = .zero
+        contentView.layer.shadowColor = UIColor.gray.cgColor
+        contentView.layer.shadowOpacity = 1
+        contentView.layer.shadowOffset = .zero
     }
     
     // MARK: - Public
     // тут ссылки на данные
     func configure(_ photo: Photo) {
         
-//        self.photoImageView.sd_setImage(with: URL(string: photo.sizes?.first?.url ?? ""), completed: nil)
-        
-        self.photoImageView.sd_setImage(with: URL(string: photo.photoURL ?? ""), completed: nil)
+        self.photoImageView.sd_setImage(with: URL(string: photo.largePhotoURL), completed: nil)
 
-//        self.photoImageView.image = UIImage(named: "testPic")
-
-        self.likeLabel.text = "❤️ 100"
+        self.likeLabel.text = ""
     }
     
     // MARK: - Private
@@ -78,8 +75,8 @@ class PhotoCollectionCell: UICollectionViewCell {
     private func setupViews() {
         // рутовая view у ячеек - contentView
         contentView.addSubview(backView)
-        contentView.addSubview(likeLabel)
         contentView.addSubview(photoImageView)
+        contentView.addSubview(likeLabel)
     }
     
     private func setupConstraints() {
@@ -87,15 +84,14 @@ class PhotoCollectionCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate([
             
-            photoImageView.widthAnchor.constraint(equalToConstant: 100),
-            photoImageView.heightAnchor.constraint(equalToConstant: 100),
-            photoImageView.leftAnchor.constraint(equalTo: backView.leftAnchor, constant: 25),
-            photoImageView.topAnchor.constraint(equalTo: backView.topAnchor, constant: 20),
-            photoImageView.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -20),
+            photoImageView.leftAnchor.constraint(equalTo: backView.leftAnchor, constant: 0),
+            photoImageView.topAnchor.constraint(equalTo: backView.topAnchor, constant: 0),
+            photoImageView.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: 0),
+            photoImageView.rightAnchor.constraint(equalTo: backView.rightAnchor, constant: 0),
             
-            likeLabel.topAnchor.constraint(equalTo: backView.topAnchor, constant: 20),
+            
             likeLabel.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -20),
-            likeLabel.leftAnchor.constraint(equalTo: photoImageView.rightAnchor, constant: 20),
+            likeLabel.leftAnchor.constraint(equalTo: backView.leftAnchor, constant: 20),
             likeLabel.rightAnchor.constraint(equalTo: backView.rightAnchor, constant: -20)
         ])
     }

@@ -19,6 +19,7 @@ final class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // clear color tabBar
         tabBar.backgroundImage = getColoredImage(color: .clear, size: CGSize(width: view.frame.width, height: 100))
         
         friendsVC.tabBarItem.image = UIImage(systemName: "person")
@@ -38,6 +39,7 @@ final class TabBarController: UITabBarController {
         self.viewControllers = controllers
     }
     
+    // background image for tabBar
     func getColoredImage(color: UIColor, size: CGSize) -> UIImage {
         let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
         UIGraphicsBeginImageContextWithOptions(size, false, 0)

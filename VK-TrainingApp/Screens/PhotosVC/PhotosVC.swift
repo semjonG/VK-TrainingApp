@@ -14,8 +14,10 @@ class PhotosVC: UIViewController {
     var photosArray: Array<Photo> = []
     
     lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView()
         
+        let collectiobViewFlowLayout = UICollectionViewFlowLayout()
+        let collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: collectiobViewFlowLayout)
+        collectionView.register(PhotoCollectionCell.self, forCellWithReuseIdentifier: PhotoCollectionCell.identifier)
         collectionView.delegate = self // кладем во внутренн переменную контроллер (для тобо чтобы можно было вызвать у контроллера методы CollectionView)
         collectionView.dataSource = self
         
@@ -24,9 +26,15 @@ class PhotosVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        fetchPhotos()
+        view.backgroundColor = .systemBackground // красим вьюшку
+        setupViews() // кладем и настраиваем верстку
+        fetchPhotos() // делаем запрос
+    }
+    
+    private func setupViews() {
         
+        self.view.addSubview(collectionView) // на рут вью кладем collectionView
+        collectionView.pinEdgesToSuperView()
     }
     
     private func fetchPhotos(offset: Int = 0) {
@@ -35,6 +43,7 @@ class PhotosVC: UIViewController {
             switch result {
             case .success(let photos):
                 self.photosArray.append(contentsOf: photos)
+                self.collectionView.reloadData()
             case .failure(_):
                 print("cant append pics to array")
             }
@@ -61,5 +70,24 @@ extension PhotosVC: UICollectionViewDataSource {
         let photo = photosArray[indexPath.row]
         cell.configure(photo)
         return cell
+    }
+}
+
+extension PhotosVC: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    
+        let inset = 10 // центральное расстояние между ячейками
+        let itemsInRow = 2 // |[]|[]|
+        let insetsWidth = inset * (itemsInRow + 1)//ширина отступов всех
+        let availableWith = collectionView.bounds.width - CGFloat(insetsWidth)
+        let widthForItem = availableWith / CGFloat(itemsInRow)
+        
+        return CGSize(width: widthForItem, height: widthForItem) //размер ячейки
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10) //отступы от секции
     }
 }

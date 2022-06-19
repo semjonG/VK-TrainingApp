@@ -19,7 +19,7 @@ class PhotosAPI {
             URLQueryItem(name: "owner_id", value: "\(Session.shared.userID)"),
             URLQueryItem(name: "extended", value: "1"),
             URLQueryItem(name: "offset", value: "\(offset)"), 
-            URLQueryItem(name: "count", value: "3"),
+            URLQueryItem(name: "count", value: "30"),
             URLQueryItem(name: "access_token", value: "\(Session.shared.token)"),
             URLQueryItem(name: "v", value: "5.131")
         ]
