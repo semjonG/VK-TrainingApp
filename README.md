@@ -11,15 +11,21 @@ More features coming soon! 🚀
 - URLSession
 - SDWebImage
   
- <table>
+    <table>
   <tr>
-    <td>Authorization</td>
+    <td>Authorization (WebKit)</td>
     <td>Friends and city</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/semjonG/VK-TrainingApp/blob/main/0.png"></td>
+    <td><img src="https://github.com/semjonG/VK-TrainingApp/blob/main/1.png"></td>
+  </tr>
+  <tr>
     <td>Communities</td>
+    <td>User photos</td>
   </tr>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/semjonG/VK-TrainingApp/main/1.png"></td>
-    <td><img src="https://raw.githubusercontent.com/semjonG/VK-TrainingApp/main/friendsScreen.png"></td>
-    <td><img src="https://raw.githubusercontent.com/semjonG/VK-TrainingApp/main/groupsScreen.png"></td>
+    <td><img src="https://github.com/semjonG/VK-TrainingApp/blob/main/2.png"></td>
+    <td><img src="https://github.com/semjonG/VK-TrainingApp/blob/main/3.png"></td>
   </tr>
-  <tr>
+ </table>
