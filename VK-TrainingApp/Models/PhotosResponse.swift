@@ -12,8 +12,6 @@ import Foundation
 //
 //   let photosResponse = try? newJSONDecoder().decode(PhotosResponse.self, from: jsonData)
 
-import Foundation
-
 // MARK: - PhotosResponse
 struct PhotosResponse: Codable {
     let response: PhotoItems?

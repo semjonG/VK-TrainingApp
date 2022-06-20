@@ -25,6 +25,10 @@ final class TabBarController: UITabBarController {
         friendsVC.tabBarItem.image = UIImage(systemName: "person")
         friendsVC.tabBarItem.title = "Friends"
         
+//        friendsVC.tabBarItem.image = UIImage(named: "gallery-4")
+//        friendsVC.tabBarItem.title = "Friends"
+        
+        
         groupsVC.tabBarItem.image = UIImage(systemName: "person.3")
         groupsVC.tabBarItem.title = "Communities"
         
