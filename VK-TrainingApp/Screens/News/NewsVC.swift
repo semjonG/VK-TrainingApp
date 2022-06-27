@@ -7,23 +7,36 @@
 
 import UIKit
 
-class NewsVC: UIViewController {
+enum PostCellType: Int, CaseIterable {
+    case author = 0
+    case text
+    case photo
+    case likeCount
+}
 
+class NewsVC: UITableViewController {
+    var newsAPI = NewsAPI()
+    
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        newsAPI.fetchNews { result in
+            switch result {
+            case .success(let newsItems):
+                print(newsItems.first)
+                print(#function)
+            case .failure(let error):
+                print("fetchNews Error")
+            }
+            print(result)
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - TableView data source
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return Ne
     }
-    */
+
 
 }
