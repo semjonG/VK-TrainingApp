@@ -34,9 +34,9 @@ class NewsVC: UITableViewController {
     }
     
     // MARK: - TableView data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return Ne
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        return Ne
+//    }
 
 
 }

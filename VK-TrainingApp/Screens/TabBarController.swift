@@ -20,7 +20,6 @@ final class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // clear color tabBar
 //        tabBar.backgroundImage = getColoredImage(color: .clear, size: CGSize(width: view.frame.width, height: 100))
         
@@ -43,6 +42,12 @@ final class TabBarController: UITabBarController {
         
         let controllers = [navigationFriendsVC, navigationGroupsVC, navigationPhotosVC, navigationNewsVC]
         self.viewControllers = controllers
+        
+        // rounded corners
+        tabBar.layer.masksToBounds = true
+        tabBar.isTranslucent = true
+        tabBar.layer.cornerRadius = 27
+        self.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
     // background image for tabBar
