@@ -45,10 +45,21 @@ final class TabBarController: UITabBarController {
         
         // rounded corners
         tabBar.layer.masksToBounds = true
-        tabBar.isTranslucent = true
         tabBar.layer.cornerRadius = 27
-        self.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        tabBar.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
     }
+    
+    // animated tabBarItem
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+            guard let barItemView = item.value(forKey: "view") as? UIView else { return }
+
+            let timeInterval: TimeInterval = 0.3
+            let propertyAnimator = UIViewPropertyAnimator(duration: timeInterval, dampingRatio: 0.5) {
+                barItemView.transform = CGAffineTransform.identity.scaledBy(x: 0.9, y: 0.9)
+            }
+            propertyAnimator.addAnimations({ barItemView.transform = .identity }, delayFactor: CGFloat(timeInterval))
+            propertyAnimator.startAnimation()
+        }
     
     // background image for tabBar
     func getColoredImage(color: UIColor, size: CGSize) -> UIImage {
