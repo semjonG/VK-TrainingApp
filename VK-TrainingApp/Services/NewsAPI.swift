@@ -38,16 +38,30 @@ class NewsAPI {
             let decoder = JSONDecoder()
             do {
                 let newsJSON = try decoder.decode(NewsJSON.self, from: data)
-                let news = newsJSON.response?.items
-
+                let newsItems = newsJSON.response?.items ?? [] // массив новостей
+                let profiles = newsJSON.response?.profiles ?? []
+                let groups = newsJSON.response?.groups ?? []
+                
+                // тут условия + или - айдишник (проверка) 
+                for item in newsItems { // item - новость
+                    if let sourceID = item.sourceID {
+                        if sourceID < 0 {
+                            let group = groups.first { $0.id == abs(sourceID) }
+                            item.group = group
+                        } else {
+                            let profile = profiles.first { $0.id == sourceID }
+                            item.profile = profile
+                        }
+                    }
+                }
+                print(newsItems)
                 DispatchQueue.main.async {
-                    completion(.success(news ?? []))
+                    completion(.success(newsItems))
                 }
 
             } catch {
                 completion(.failure(error))
             }
-            completion(.success([]))
         }.resume()
     }
 }

@@ -31,7 +31,7 @@ struct NewsResponse: Codable {
 }
 
 // MARK: - ResponseItem
-struct NewsItem: Codable {
+class NewsItem: Codable {
     let sourceID, date: Int?
     let canDoubtCategory, canSetCategory, isFavorite: Bool?
     let postType, text: String?
@@ -48,6 +48,9 @@ struct NewsItem: Codable {
     let postID: Int?
     let type: String?
     let photos: Photos?
+    var profile: Profile? // связанный профиль (не парсится)
+    var group: Group? // связанная группа (не парсится)
+    
 
     enum CodingKeys: String, CodingKey {
         case sourceID = "source_id"

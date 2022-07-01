@@ -61,7 +61,7 @@ final class TabBarController: UITabBarController {
             propertyAnimator.startAnimation()
         }
     
-    // background image for tabBar
+    // background image for tabBar 
     func getColoredImage(color: UIColor, size: CGSize) -> UIImage {
         let rect = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
