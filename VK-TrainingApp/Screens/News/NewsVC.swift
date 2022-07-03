@@ -50,14 +50,27 @@ class NewsVC: UITableViewController {
         
         switch newsItemCellType {
         case .author:
-           //return UITableViewCell() let cell = tableView.dequeueReusableCell(withIdentifier: <#T##String#>, for: <#T##IndexPath#>)
-            return UITableViewCell()
+            let cell = tableView.dequeueReusableCell(withIdentifier: NewsAuthorCell.identifire, for: indexPath) as! NewsAuthorCell
+            let nameUser = newsArray[indexPath.section].profile?.screenName ?? "nameUser error"
+            let photoUser = newsArray[indexPath.section].profile?.photo50 ?? "photoUser error"
+            cell.configure(photo: photoUser , name: nameUser)
+//            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
+            return cell
         case .text:
-            return UITableViewCell()
+            let cell = tableView.dequeueReusableCell(withIdentifier: NewsTextCell.identifire, for: indexPath) as! NewsTextCell
+            cell.configure(<#T##friend: Friend##Friend#>) // РАСШИРИТЬ КОНСТРУКТОР ПОСЛЕ НАПИСАНИЯ КОНФИГУРА В ЯЧЕЙКЕ
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
+            return cell
         case .photo:
-            return UITableViewCell()
+            let cell = tableView.dequeueReusableCell(withIdentifier: NewsPhotoCell.identifire, for: indexPath) as! NewsPhotoCell
+            cell.configure(<#T##friend: Friend##Friend#>) // РАСШИРИТЬ КОНСТРУКТОР ПОСЛЕ НАПИСАНИЯ КОНФИГУРА В ЯЧЕЙКЕ
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
+            return cell
         case .likeCount:
-            return UITableViewCell()
+            let cell = tableView.dequeueReusableCell(withIdentifier: NewsLikesCell.identifire, for: indexPath) as! NewsLikesCell
+            cell.configure(<#T##friend: Friend##Friend#>) // РАСШИРИТЬ КОНСТРУКТОР ПОСЛЕ НАПИСАНИЯ КОНФИГУРА В ЯЧЕЙКЕ
+            
+            return cell
         case .none:
             return UITableViewCell()
         }

@@ -5,7 +5,6 @@
 //  Created by mac on 01.07.2022.
 //
 
-
 import UIKit
 
 class NewsLikesCell: UITableViewCell {

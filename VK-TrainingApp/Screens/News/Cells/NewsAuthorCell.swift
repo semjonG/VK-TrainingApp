@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class NewsAuthorCell: UITableViewCell {
     
@@ -40,13 +41,10 @@ class NewsAuthorCell: UITableViewCell {
     }
 
     // MARK: - Public
-    func configure(_ friend: Friend) {
-        
-//        self.authorImageView.sd_setImage(with: URL(string: friend.photo50 ?? ""), completed: nil) // !!! изменить ссылки профиль / группа
-//
-//        self.authorImageView.contentMode = .scaleAspectFill
-//
-//        self.authorLabel.text = "\(friend.firstName ?? "") \(friend.lastName ?? "")" // !!! изменить ссылки профиль / группа
+    func configure(photo: String, name: String) {
+        authorImageView.sd_setImage(with: URL(string: photo), completed: nil)
+        authorLabel.text = name
+
     }
     
     // MARK: - Private
