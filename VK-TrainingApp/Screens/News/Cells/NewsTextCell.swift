@@ -32,19 +32,13 @@ class NewsTextCell: UITableViewCell {
     }
 
     // MARK: - Public
-    func configure(_ friend: Friend) {
-        
-//        self.authorImageView.sd_setImage(with: URL(string: friend.photo50 ?? ""), completed: nil) // !!! изменить ссылки профиль / группа
-//
-//        self.authorImageView.contentMode = .scaleAspectFill
-//
-//        self.authorLabel.text = "\(friend.firstName ?? "") \(friend.lastName ?? "")" // !!! изменить ссылки профиль / группа
+    func configure(_ newsText: NewsItem) {
+        self.newsTextLabel.text = "\(newsText.text ?? "")"
     }
     
     // MARK: - Private
     
     private func setupViews() {
-        // рутовая view у ячеек - contentView
         contentView.addSubview(newsTextLabel)
     }
     

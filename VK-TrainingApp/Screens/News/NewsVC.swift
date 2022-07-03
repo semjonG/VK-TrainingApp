@@ -21,17 +21,30 @@ class NewsVC: UITableViewController {
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setupViews()
+        fetchNews()
+    }
+    
+    private func setupViews() {
+        
+        self.view.addSubview(tableView)
+        tableView.pinEdgesToSuperView()
+    }
+    
+    private func fetchNews() {
+        
         newsAPI.fetchNews { result in
             switch result {
+                
             case .success(let newsItems):
-                print(newsItems)
-                // print(newsItems.first?.group)
+                self.newsArray = newsItems
+                self.tableView.reloadData()
+               
                 print(#function)
             case .failure(let error):
-                print("fetchNews Error")
+                print(error)
             }
-            print(result)
         }
     }
     
@@ -45,32 +58,30 @@ class NewsVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = newsArray[indexPath.section]
+//        let item = newsArray[indexPath.section]
         let newsItemCellType = NewsItemCell(rawValue: indexPath.row)
         
         switch newsItemCellType {
         case .author:
             let cell = tableView.dequeueReusableCell(withIdentifier: NewsAuthorCell.identifire, for: indexPath) as! NewsAuthorCell
-            let nameUser = newsArray[indexPath.section].profile?.screenName ?? "nameUser error"
-            let photoUser = newsArray[indexPath.section].profile?.photo50 ?? "photoUser error"
-            cell.configure(photo: photoUser , name: nameUser)
-//            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
             return cell
+            
         case .text:
             let cell = tableView.dequeueReusableCell(withIdentifier: NewsTextCell.identifire, for: indexPath) as! NewsTextCell
-            cell.configure(<#T##friend: Friend##Friend#>) // РАСШИРИТЬ КОНСТРУКТОР ПОСЛЕ НАПИСАНИЯ КОНФИГУРА В ЯЧЕЙКЕ
-            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
+            let text = newsArray[indexPath.row]
+            cell.configure(text)
             return cell
+            
         case .photo:
             let cell = tableView.dequeueReusableCell(withIdentifier: NewsPhotoCell.identifire, for: indexPath) as! NewsPhotoCell
-            cell.configure(<#T##friend: Friend##Friend#>) // РАСШИРИТЬ КОНСТРУКТОР ПОСЛЕ НАПИСАНИЯ КОНФИГУРА В ЯЧЕЙКЕ
-            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
+            let photo = newsArray[indexPath.row].photos?.items
+            cell.configure(photo)
             return cell
+            
         case .likeCount:
             let cell = tableView.dequeueReusableCell(withIdentifier: NewsLikesCell.identifire, for: indexPath) as! NewsLikesCell
-            cell.configure(<#T##friend: Friend##Friend#>) // РАСШИРИТЬ КОНСТРУКТОР ПОСЛЕ НАПИСАНИЯ КОНФИГУРА В ЯЧЕЙКЕ
-            
             return cell
+            
         case .none:
             return UITableViewCell()
         }

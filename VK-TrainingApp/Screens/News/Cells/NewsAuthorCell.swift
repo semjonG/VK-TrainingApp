@@ -41,10 +41,8 @@ class NewsAuthorCell: UITableViewCell {
     }
 
     // MARK: - Public
-    func configure(photo: String, name: String) {
-        authorImageView.sd_setImage(with: URL(string: photo), completed: nil)
-        authorLabel.text = name
-
+    func configure() {
+        
     }
     
     // MARK: - Private

@@ -134,6 +134,14 @@ struct PhotosItem: Codable {
     let comments: Views?
     let reposts: Reposts?
     let canRepost: Int?
+    
+    var largePhotoURL: String {
+        return sizes?.last?.url ?? ""
+    }
+    
+    var smallPhotoURL: String {
+        return sizes?.first?.url ?? ""
+    }
 
     enum CodingKeys: String, CodingKey {
         case albumID = "album_id"

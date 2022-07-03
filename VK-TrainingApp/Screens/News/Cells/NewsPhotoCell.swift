@@ -33,20 +33,13 @@ class NewsPhotoCell: UITableViewCell {
     }
 
     // MARK: - Public
-    func configure(_ friend: Friend) {
-        
-//        self.authorImageView.sd_setImage(with: URL(string: friend.photo50 ?? ""), completed: nil) // !!! изменить ссылки профиль / группа
-//
-//        self.authorImageView.contentMode = .scaleAspectFill
-//
-//        self.authorLabel.text = "\(friend.firstName ?? "") \(friend.lastName ?? "")" // !!! изменить ссылки профиль / группа
+    func configure(_ photo: PhotosItem) {
+        self.newsPhotoView.sd_setImage(with: URL(string: photo.largePhotoURL), completed: nil)
     }
     
     // MARK: - Private
     
     private func setupViews() {
-        // рутовая view у ячеек - contentView
-
         contentView.addSubview(newsPhotoView)
     }
     

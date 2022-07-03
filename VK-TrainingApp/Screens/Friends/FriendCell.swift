@@ -67,7 +67,7 @@ class FriendCell: UITableViewCell {
 
         self.photoImageView.contentMode = .scaleAspectFill
 
-        self.nameLabel.text = "\(friend.firstName ?? "") \(friend.lastName ?? "")  \(friend.city?.title ?? "")"
+        self.nameLabel.text = "\(friend.firstName ?? "") \(friend.lastName ?? "") \(friend.city?.title ?? "")"
     }
     
     // MARK: - Private

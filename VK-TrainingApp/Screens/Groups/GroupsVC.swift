@@ -36,7 +36,7 @@ class GroupsVC: UIViewController {
     
     private func setupViews() {
         
-        self.view.addSubview(tableView) // на рут вью кладем тейбл вью
+        self.view.addSubview(tableView) 
         tableView.pinEdgesToSuperView()
     }
     
