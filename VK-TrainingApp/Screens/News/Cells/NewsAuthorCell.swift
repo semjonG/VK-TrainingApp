@@ -10,7 +10,7 @@ import SDWebImage
 
 class NewsAuthorCell: UITableViewCell {
     
-    static let identifire = "NewsAuthorCell"
+    static let identifier = "NewsAuthorCell"
 
     lazy var authorLabel: UILabel = {
         let label = UILabel()
@@ -31,7 +31,6 @@ class NewsAuthorCell: UITableViewCell {
     // MARK: - Lifecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
         setupViews()
         setupConstraints()
     }
@@ -48,7 +47,6 @@ class NewsAuthorCell: UITableViewCell {
     // MARK: - Private
     
     private func setupViews() {
-        // рутовая view у ячеек - contentView
         contentView.addSubview(authorLabel)
         contentView.addSubview(authorImageView)
     }

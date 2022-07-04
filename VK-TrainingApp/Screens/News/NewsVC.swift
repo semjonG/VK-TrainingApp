@@ -14,26 +14,41 @@ enum NewsItemCell: Int, CaseIterable {
     case likeCount
 }
 
-class NewsVC: UITableViewController {
+class NewsVC: UIViewController {
+    
     var newsAPI = NewsAPI()
     var newsArray: [NewsItem] = []
+    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        //        tableView.prefetchDataSource = self
+        //        tableView.separatorColor = UIColor.clear
+        tableView.register(NewsAuthorCell.self, forCellReuseIdentifier: NewsAuthorCell.identifier)
+        tableView.register(NewsTextCell.self, forCellReuseIdentifier: NewsTextCell.identifier)
+        tableView.register(NewsPhotoCell.self, forCellReuseIdentifier: NewsPhotoCell.identifier)
+        tableView.register(NewsLikesCell.self, forCellReuseIdentifier: NewsLikesCell.identifier)
+        
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
     
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupViews()
         fetchNews()
     }
     
     private func setupViews() {
-        
         self.view.addSubview(tableView)
         tableView.pinEdgesToSuperView()
     }
     
     private func fetchNews() {
-        
         newsAPI.fetchNews { result in
             switch result {
                 
@@ -47,39 +62,45 @@ class NewsVC: UITableViewController {
             }
         }
     }
-    
-    // MARK: - TableView data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return newsArray.count
-    }
+}
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension NewsVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("нажатие", indexPath.row)
+    }
+}
+
+extension NewsVC: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return NewsItemCell.allCases.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let item = newsArray[indexPath.section]
         let newsItemCellType = NewsItemCell(rawValue: indexPath.row)
         
         switch newsItemCellType {
         case .author:
-            let cell = tableView.dequeueReusableCell(withIdentifier: NewsAuthorCell.identifire, for: indexPath) as! NewsAuthorCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: NewsAuthorCell.identifier, for: indexPath) as! NewsAuthorCell
             return cell
             
         case .text:
-            let cell = tableView.dequeueReusableCell(withIdentifier: NewsTextCell.identifire, for: indexPath) as! NewsTextCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: NewsTextCell.identifier, for: indexPath) as! NewsTextCell
             let text = newsArray[indexPath.row]
             cell.configure(text)
             return cell
             
         case .photo:
-            let cell = tableView.dequeueReusableCell(withIdentifier: NewsPhotoCell.identifire, for: indexPath) as! NewsPhotoCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: NewsPhotoCell.identifier, for: indexPath) as! NewsPhotoCell
             let photo = newsArray[indexPath.row].photos?.items
             cell.configure(photo)
             return cell
             
         case .likeCount:
-            let cell = tableView.dequeueReusableCell(withIdentifier: NewsLikesCell.identifire, for: indexPath) as! NewsLikesCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: NewsLikesCell.identifier, for: indexPath) as! NewsLikesCell
+            let likes = newsArray[indexPath.row]
+            cell.configure(likes)
             return cell
             
         case .none:
@@ -87,3 +108,5 @@ class NewsVC: UITableViewController {
         }
     }
 }
+
+

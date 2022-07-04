@@ -10,7 +10,6 @@ import UIKit
 class PhotosVC: UIViewController {
     
     var photosAPI = PhotosAPI()
-    
     var photosArray: Array<Photo> = []
     
     lazy var collectionView: UICollectionView = {

@@ -13,15 +13,12 @@ class FriendsVC: UIViewController {
     
     // inject service with vareable. внедрили зависимость в контроллер (переменная сервиса) через сильную ссылку
     var friendsAPI = FriendsAPI()
-    
     var friends: [Friend] = []
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         
-        
         //VC -> tableView -> methods -> delegate/datasource -> VC (dvustoronyaya svyaz)
-        //
         tableView.delegate = self
         tableView.dataSource = self
         tableView.prefetchDataSource = self // позволяет подгрузку данных
@@ -33,13 +30,11 @@ class FriendsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupViews()
         fetchFriends()
     }
     
     private func setupViews() {
-        
         self.view.addSubview(tableView) // на рут вью кладем тейбл вью
         tableView.pinEdgesToSuperView()
     }

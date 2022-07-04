@@ -9,20 +9,19 @@ import UIKit
 
 class NewsTextCell: UITableViewCell {
     
-    static let identifire = "NewsTextCell"
+    static let identifier = "NewsTextCell"
 
-    lazy var newsTextLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        return label
+    let newsTextView: UITextView = {
+        let textView = UITextView()
+        textView.isScrollEnabled = false
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.font = UIFont.systemFont(ofSize: 14)
+        return textView
     }()
 
     // MARK: - Lifecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
         setupViews()
         setupConstraints()
     }
@@ -33,23 +32,23 @@ class NewsTextCell: UITableViewCell {
 
     // MARK: - Public
     func configure(_ newsText: NewsItem) {
-        self.newsTextLabel.text = "\(newsText.text ?? "")"
+        self.newsTextView.text = "\(newsText.text ?? "")"
     }
     
     // MARK: - Private
     
     private func setupViews() {
-        contentView.addSubview(newsTextLabel)
+        contentView.addSubview(newsTextView)
     }
     
     private func setupConstraints() {
         
         NSLayoutConstraint.activate([
             
-            newsTextLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            newsTextLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
-            newsTextLabel.leftAnchor.constraint(equalTo: contentView.rightAnchor, constant: 20),
-            newsTextLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20)
+            newsTextView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            newsTextView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+            newsTextView.leftAnchor.constraint(equalTo: contentView.rightAnchor, constant: 20),
+            newsTextView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20)
         ])
     }
 }

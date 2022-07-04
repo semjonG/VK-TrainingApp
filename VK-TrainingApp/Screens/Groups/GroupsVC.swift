@@ -10,14 +10,11 @@ import UIKit
 class GroupsVC: UIViewController {
     
     var groupsAreLoading = false
-    
     var groupsAPI = GroupsAPI()
-    
     var groups: [Group] = []
 
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-
         tableView.delegate = self
         tableView.dataSource = self
         tableView.prefetchDataSource = self
@@ -29,22 +26,18 @@ class GroupsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupViews()
         fetchGroups()
     }
     
     private func setupViews() {
-        
         self.view.addSubview(tableView) 
         tableView.pinEdgesToSuperView()
     }
     
     private func fetchGroups(offset: Int = 0) {
-        // closure, лежащий в параметре функции - колл бэк (обратный вызов функции)
         groupsAPI.fetchGroups { result in
             switch result {
-                
             case .success(let groups):
                 self.groups = groups
                 self.tableView.reloadData()
@@ -84,8 +77,6 @@ extension GroupsVC: UITableViewDataSourcePrefetching {
         guard let maxRow = indexPaths.map({ $0.row }).max() else { return }
         
         if maxRow > groups.count - 5 {
-//
-            
             if groupsAreLoading == false {
                 
                 // Состояние-2: запрос запущен

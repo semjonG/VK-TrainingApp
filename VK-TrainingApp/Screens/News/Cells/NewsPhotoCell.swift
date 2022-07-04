@@ -10,7 +10,7 @@ import SDWebImage
 
 class NewsPhotoCell: UITableViewCell {
     
-    static let identifire = "NewsPhotoCell"
+    static let identifier = "NewsPhotoCell"
     
     lazy var newsPhotoView: UIImageView = {
         let imageView = UIImageView()
@@ -23,7 +23,6 @@ class NewsPhotoCell: UITableViewCell {
     // MARK: - Lifecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
         setupViews()
         setupConstraints()
     }

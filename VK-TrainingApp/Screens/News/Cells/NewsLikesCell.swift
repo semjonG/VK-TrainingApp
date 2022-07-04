@@ -9,7 +9,7 @@ import UIKit
 
 class NewsLikesCell: UITableViewCell {
     
-    static let identifire = "NewsLikesCell"
+    static let identifier = "NewsLikesCell"
 
     lazy var newsLikesLabel: UILabel = {
         let label = UILabel()
@@ -32,13 +32,8 @@ class NewsLikesCell: UITableViewCell {
     }
 
     // MARK: - Public
-    func configure(_ friend: Friend) {
-        
-//        self.authorImageView.sd_setImage(with: URL(string: friend.photo50 ?? ""), completed: nil) // !!! изменить ссылки профиль / группа
-//
-//        self.authorImageView.contentMode = .scaleAspectFill
-//
-//        self.authorLabel.text = "\(friend.firstName ?? "") \(friend.lastName ?? "")" // !!! изменить ссылки профиль / группа
+    func configure(_ likes: NewsItem) {
+        self.newsLikesLabel.text = likes.text
     }
     
     // MARK: - Private
