@@ -40,8 +40,14 @@ class NewsAuthorCell: UITableViewCell {
     }
 
     // MARK: - Public
-    func configure() {
-        
+    func configure(_ group: Group) {
+        self.authorImageView.sd_setImage(with: URL(string: group.photo100 ?? ""), completed: nil)
+        self.authorLabel.text = group.name
+    }
+    
+    func configure(_ profile: Profile) {
+        self.authorImageView.sd_setImage(with: URL(string: profile.photo100 ?? ""), completed: nil)
+        self.authorLabel.text = "\(profile.firstName ?? "") \(profile.lastName ?? "")"
     }
     
     // MARK: - Private

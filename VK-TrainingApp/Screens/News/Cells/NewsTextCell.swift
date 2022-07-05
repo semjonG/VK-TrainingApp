@@ -31,8 +31,8 @@ class NewsTextCell: UITableViewCell {
     }
 
     // MARK: - Public
-    func configure(_ newsText: NewsItem) {
-        self.newsTextView.text = "\(newsText.text ?? "")"
+    func configure(newsText: String?) {
+        newsTextView.text = newsText 
     }
     
     // MARK: - Private
