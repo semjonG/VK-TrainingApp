@@ -34,12 +34,12 @@ struct NewsResponse: Codable {
 class NewsItem: Codable {
     let sourceID, date: Int?
     let canDoubtCategory, canSetCategory, isFavorite: Bool?
-    let postType, text: String?
+    let postType, text: String? // отсюда не  приходит текст новости
     let markedAsAds: Int?
     let attachments: [Attachment]?
     let postSource: PostSource?
     let comments: Comments?
-    let likes: PurpleLikes?
+    let likes: PurpleLikes? // отсюда не  приходят лайки новости
 //    let reposts: Reposts?
 //    let views: Views?
 //    let copyright: Copyright?
@@ -127,10 +127,10 @@ struct PhotosItem: Codable {
     let accessKey: String?
     let canComment, postID: Int?
     let sizes: [Size]?
-    let text: String?
+    let text: String? // ???
     let userID: Int?
     let hasTags: Bool?
-    let likes: FluffyLikes?
+    let likes: FluffyLikes? // ???
     let comments: Views?
     let reposts: Reposts?
     let canRepost: Int?

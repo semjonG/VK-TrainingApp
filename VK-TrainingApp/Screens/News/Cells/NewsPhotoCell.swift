@@ -15,12 +15,16 @@ class NewsPhotoCell: UITableViewCell {
     lazy var newsPhotoView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.cornerRadius = 50
         imageView.clipsToBounds = true
         return imageView
     }()
 
     // MARK: - Lifecycle
+    
+    override func prepareForReuse() {
+        newsPhotoView.image = nil
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
@@ -51,10 +55,10 @@ class NewsPhotoCell: UITableViewCell {
             
             newsPhotoView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 1),
             newsPhotoView.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 1), // !!! изменить соотношение сторон
-            newsPhotoView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 25),
-            newsPhotoView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            newsPhotoView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
-            
+            newsPhotoView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 0),
+            newsPhotoView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: 0),
+            newsPhotoView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            newsPhotoView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0)
         ])
     }
 }

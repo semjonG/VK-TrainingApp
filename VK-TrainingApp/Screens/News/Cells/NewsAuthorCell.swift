@@ -23,12 +23,17 @@ class NewsAuthorCell: UITableViewCell {
     lazy var authorImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.cornerRadius = 50
+        imageView.layer.cornerRadius = 25
         imageView.clipsToBounds = true
         return imageView
     }()
 
     // MARK: - Lifecycle
+    
+    override func prepareForReuse() {
+        authorImageView.image = nil
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()

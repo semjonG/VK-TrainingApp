@@ -20,6 +20,11 @@ class NewsLikesCell: UITableViewCell {
     }()
 
     // MARK: - Lifecycle
+    
+    override func prepareForReuse() {
+        newsLikesLabel.text = "♥️ 0"
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -33,7 +38,7 @@ class NewsLikesCell: UITableViewCell {
 
     // MARK: - Public
     func configure(likes: Int?) {
-        newsLikesLabel.text = "\(likes)" 
+        newsLikesLabel.text = "♥️ \(likes ?? 0)"
     }
     
     // MARK: - Private
@@ -49,7 +54,7 @@ class NewsLikesCell: UITableViewCell {
             
             newsLikesLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
             newsLikesLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
-            newsLikesLabel.leftAnchor.constraint(equalTo: contentView.rightAnchor, constant: 20),
+            newsLikesLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
             newsLikesLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20)
         ])
     }
