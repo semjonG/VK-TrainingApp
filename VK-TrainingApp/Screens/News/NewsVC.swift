@@ -104,9 +104,17 @@ extension NewsVC: UITableViewDataSource {
             
             return UITableView.automaticDimension
             
+        case .photo:
+            if newsItem.photos == nil {
+                return CGFloat.zero
+            }
             
-        
+            if let photo = newsItem.photos, photo.count == 0 {
+                return CGFloat.zero
+            }
             
+            return UITableView.automaticDimension
+  
         default:
             return UITableView.automaticDimension
         }
