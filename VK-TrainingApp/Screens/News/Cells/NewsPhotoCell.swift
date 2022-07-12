@@ -36,10 +36,11 @@ class NewsPhotoCell: UITableViewCell {
     }
 
     // MARK: - Public
-    func configure(_ photos: [PhotosItem]) {
-        newsPhotoView.image = UIImage()
-        guard let firstPhoto = photos.first else { return }
-        let photoURL = URL(string: firstPhoto.largePhotoURL)
+    func configure(_ cellModel: PostCellModel) {
+        
+        //newsPhotoView.image = UIImage()
+        //guard let firstPhoto = photos.first else { return }
+        let photoURL = URL(string: cellModel.photoUrl)
         self.newsPhotoView.sd_setImage(with: photoURL, completed: nil)
     }
     

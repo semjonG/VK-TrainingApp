@@ -37,8 +37,8 @@ class NewsLikesCell: UITableViewCell {
     }
 
     // MARK: - Public
-    func configure(likes: Int?) {
-        newsLikesLabel.text = "♥️ \(likes ?? 0)"
+    func configure(_ cellModel: PostCellModel) {
+        newsLikesLabel.text = "♥️ \(cellModel.likesCount)"
     }
     
     // MARK: - Private

@@ -10,7 +10,7 @@ import Foundation
 
 class NewsAPI {
 
-    func fetchNews(offset: Int = 0, completion: @escaping (Result<[NewsItem], Error>) -> ()) {
+    func fetchNews(offset: Int = 0, completion: @escaping (Result<[PostCellModel], Error>) -> ()) {
 
         var components = URLComponents()
         components.scheme = "HTTPS"
@@ -19,7 +19,7 @@ class NewsAPI {
         components.queryItems = [
             URLQueryItem(name: "owner_id", value: "\(Session.shared.userID)"),
             URLQueryItem(name: "offset", value: "\(offset)"),
-            URLQueryItem(name: "count", value: "20"),
+            URLQueryItem(name: "count", value: "30"),
             URLQueryItem(name: "access_token", value: "\(Session.shared.token)"),
             URLQueryItem(name: "v", value: "5.131")
         ]
@@ -39,24 +39,53 @@ class NewsAPI {
             do {
                 let newsJSON = try decoder.decode(NewsJSON.self, from: data)
                 let newsItems = newsJSON.response?.items ?? [] // массив новостей
+                
                 let profiles = newsJSON.response?.profiles ?? []
                 let groups = newsJSON.response?.groups ?? []
                 
-                // тут условия + или - айдишник (проверка) 
-                for item in newsItems { // item - новость
-                    if let sourceID = item.sourceID {
-                        if sourceID < 0 {
-                            let group = groups.first { $0.id == abs(sourceID) }
-                            item.group = group
-                        } else {
-                            let profile = profiles.first { $0.id == sourceID }
-                            item.profile = profile
-                        }
+                var postModels: [PostCellModel] = []
+                for post in newsItems {
+                    
+                    if post.type != "post" { continue }
+                    
+                    var authorName = ""
+                    var authorImageUrl = ""
+                    
+                    let sourceID = post.sourceID ?? 0
+                    
+                    if sourceID < 0 {
+                        let group = groups.first { $0.id == abs(sourceID) }
+                        authorName = group?.name ?? ""
+                        authorImageUrl = group?.photo100 ?? ""
+                    } else {
+                        let profile = profiles.first { $0.id == sourceID }
+                        authorName = "\(profile?.firstName ?? "") \(profile?.lastName ?? "")"
+                        authorImageUrl = profile?.photo100 ?? ""
                     }
+                    
+                    //let photoUrl = post.photos?.items?.first?.sizes?.last?.url ?? ""
+                    
+                    let photoUrl = post.attachments?.first?.photo?.sizes?.last?.url ?? ""
+                    
+                    let text = post.text ?? ""
+                    
+                    let likesCount = post.likes?.count ?? 0
+                  
+                    
+                    let postModel = PostCellModel(authorImageUrl: authorImageUrl,
+                                                  authorName: authorName,
+                                                  text: text,
+                                                  photoUrl: photoUrl,
+                                                  likesCount: likesCount)
+                    
+                    postModels.append(postModel)
+                    
                 }
-                print(newsItems)
+                
+                print(postModels)
+                
                 DispatchQueue.main.async {
-                    completion(.success(newsItems))
+                    completion(.success(postModels))
                 }
 
             } catch {

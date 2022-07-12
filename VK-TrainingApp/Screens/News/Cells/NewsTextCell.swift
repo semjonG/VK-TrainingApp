@@ -37,9 +37,9 @@ class NewsTextCell: UITableViewCell {
     }
 
     // MARK: - Public
-    func configure(_ newsText: String) {
+    func configure(_ cellModel: PostCellModel) {
         
-        newsTextLabel.text = newsText
+        newsTextLabel.text = cellModel.text
     }
     
     // MARK: - Private
