@@ -16,6 +16,7 @@ class NewsPhotoCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
+        imageView.contentMode = UIView.ContentMode.scaleAspectFit
         return imageView
     }()
 

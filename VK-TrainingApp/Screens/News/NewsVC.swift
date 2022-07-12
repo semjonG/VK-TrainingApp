@@ -21,12 +21,12 @@ class NewsVC: UIViewController {
     var newsArray: [PostCellModel] = []
     
     private lazy var tableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .insetGrouped)
         
         tableView.delegate = self
         tableView.dataSource = self
         //        tableView.prefetchDataSource = self
-        //        tableView.separatorColor = UIColor.clear
+        tableView.separatorColor = UIColor.clear
         
         tableView.register(NewsAuthorCell.self, forCellReuseIdentifier: NewsAuthorCell.identifier)
         tableView.register(NewsTextCell.self, forCellReuseIdentifier: NewsTextCell.identifier)
@@ -109,7 +109,7 @@ extension NewsVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cellType = NewsItemCell(rawValue: indexPath.row) // индекс -> в тип ячейки и далее свичем по кейсам
         
         let cellModel = newsArray[indexPath.section]
@@ -120,28 +120,28 @@ extension NewsVC: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: NewsAuthorCell.identifier, for: indexPath) as! NewsAuthorCell
             
             cell.configure(cellModel)
-            
+            cell.selectionStyle = .none
             return cell
             
         case .text:
             let cell = tableView.dequeueReusableCell(withIdentifier: NewsTextCell.identifier, for: indexPath) as! NewsTextCell
 
             cell.configure(cellModel)
-  
+            cell.selectionStyle = .none
             return cell
             
         case .photo:
             let cell = tableView.dequeueReusableCell(withIdentifier: NewsPhotoCell.identifier, for: indexPath) as! NewsPhotoCell
 
             cell.configure(cellModel)
-
+            cell.selectionStyle = .none
             return cell
             
         case .likeCount:
             let cell = tableView.dequeueReusableCell(withIdentifier: NewsLikesCell.identifier, for: indexPath) as! NewsLikesCell
 
             cell.configure(cellModel)
-           
+            cell.selectionStyle = .none
             return cell
             
         default:
