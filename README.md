@@ -2,7 +2,7 @@
 
 This is a pet project social-media application with VK (rus social network) API, that I'm creating now. I will add new features, learning new technologies as I go. 
 
-More features coming soon! 🚀 Newsfeed under development.
+More features coming soon! 🚀 Newsfeed under development (95% ready).
 
 ## Done
 - MVC
@@ -11,6 +11,7 @@ More features coming soon! 🚀 Newsfeed under development.
 - URLSession
 - SDWebImage
 - Programmatically
+- SPM
   
   
     <table>
