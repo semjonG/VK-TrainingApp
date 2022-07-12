@@ -24,13 +24,24 @@ class FriendCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        return label
+    }()
+    
+    lazy var additionalInfoLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.font = .systemFont(ofSize: 14, weight: .regular)
+        label.textColor = .darkGray
         return label
     }()
     
     lazy var photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.cornerRadius = 50
+        imageView.layer.cornerRadius = 40
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -66,7 +77,9 @@ class FriendCell: UITableViewCell {
 
         self.photoImageView.contentMode = .scaleAspectFill
 
-        self.nameLabel.text = "\(friend.firstName ?? "") \(friend.lastName ?? "") \(friend.city?.title ?? "")"
+        self.nameLabel.text = "\(friend.firstName ?? "") \(friend.lastName ?? "")  \(friend.online == 0 ? "" : "🟢")"
+        
+        self.additionalInfoLabel.text = "\(friend.city?.title ?? "")"
     }
     
     // MARK: - Private
@@ -76,6 +89,7 @@ class FriendCell: UITableViewCell {
         contentView.addSubview(backView)
         contentView.addSubview(nameLabel)
         contentView.addSubview(photoImageView)
+        contentView.addSubview(additionalInfoLabel)
     }
     
     private func setupConstraints() {
@@ -83,8 +97,8 @@ class FriendCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             
-            photoImageView.widthAnchor.constraint(equalToConstant: 100),
-            photoImageView.heightAnchor.constraint(equalToConstant: 100),
+            photoImageView.widthAnchor.constraint(equalToConstant: 80),
+            photoImageView.heightAnchor.constraint(equalToConstant: 80),
             photoImageView.leftAnchor.constraint(equalTo: backView.leftAnchor, constant: 25),
             photoImageView.topAnchor.constraint(equalTo: backView.topAnchor, constant: 20),
             photoImageView.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -20),
@@ -92,7 +106,11 @@ class FriendCell: UITableViewCell {
             nameLabel.topAnchor.constraint(equalTo: backView.topAnchor, constant: 20),
             nameLabel.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -20),
             nameLabel.leftAnchor.constraint(equalTo: photoImageView.rightAnchor, constant: 20),
-            nameLabel.rightAnchor.constraint(equalTo: backView.rightAnchor, constant: -20)
+            nameLabel.rightAnchor.constraint(equalTo: backView.rightAnchor, constant: -20),
+            
+            additionalInfoLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: -26),
+            additionalInfoLabel.leftAnchor.constraint(equalTo: photoImageView.rightAnchor, constant: 20),
+            additionalInfoLabel.rightAnchor.constraint(equalTo: backView.rightAnchor, constant: -20)
         ])
     }
 }

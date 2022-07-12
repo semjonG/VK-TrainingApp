@@ -30,7 +30,7 @@ class GroupCell: UITableViewCell {
     lazy var logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.cornerRadius = 50
+        imageView.layer.cornerRadius = 40
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -84,8 +84,8 @@ class GroupCell: UITableViewCell {
         // нельзя устанавливать констрейнты, пока на вью не добавлен элемент
         NSLayoutConstraint.activate([
             
-            logoImageView.widthAnchor.constraint(equalToConstant: 100),
-            logoImageView.heightAnchor.constraint(equalToConstant: 100),
+            logoImageView.widthAnchor.constraint(equalToConstant: 80),
+            logoImageView.heightAnchor.constraint(equalToConstant: 80),
             logoImageView.leftAnchor.constraint(equalTo: backView.leftAnchor, constant: 25),
             logoImageView.topAnchor.constraint(equalTo: backView.topAnchor, constant: 20),
             logoImageView.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -20),

@@ -66,7 +66,7 @@ extension GroupsVC: UITableViewDataSource {
 
         let group = groups[indexPath.row]
         cell.configure(group)
-        
+        cell.selectionStyle = .none
         return cell
     }
 }

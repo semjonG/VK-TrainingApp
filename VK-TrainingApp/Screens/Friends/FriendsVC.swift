@@ -73,7 +73,7 @@ extension FriendsVC: UITableViewDataSource {
 
         let friend = friends[indexPath.row]
         cell.configure(friend)
-        
+        cell.selectionStyle = .none
         return cell
     }
 }
