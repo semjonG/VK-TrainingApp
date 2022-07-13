@@ -17,7 +17,7 @@ More features coming soon! 🚀 Newsfeed under development (95% ready).
   <tr>
     <td>Running</td>
     <td>Authorization (WebKit)</td>
-    <td>Friends + city & status</td>
+    <td>Friends + city & status (TableView)</td>
   </tr>
   <tr>
     <td><img src="https://raw.githubusercontent.com/semjonG/VK-TrainingApp/main/gif.gif"></td>
@@ -25,9 +25,9 @@ More features coming soon! 🚀 Newsfeed under development (95% ready).
     <td><img src="https://raw.githubusercontent.com/semjonG/VK-TrainingApp/main/2.png"></td>
   </tr>
   <tr>
-    <td>Communities</td>
-    <td>User photos</td>
-    <td>Newsfeed</td>
+    <td>Communities (TableView)</td>
+    <td>User photos (CollectionView)</td>
+    <td>Newsfeed (TableView)</td>
   </tr>
   <tr>
     <td><img src="https://raw.githubusercontent.com/semjonG/VK-TrainingApp/main/3.png"></td>
