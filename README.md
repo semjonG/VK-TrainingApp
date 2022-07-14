@@ -20,7 +20,7 @@ More features coming soon! 🚀 Newsfeed under development (95% ready).
     <td>Friends + city & status (TableView)</td>
   </tr>
   <tr>
-    <td><img src="https://raw.githubusercontent.com/semjonG/VK-TrainingApp/main/gif.gif"></td>
+    <td><img src="https://raw.githubusercontent.com/semjonG/VK-TrainingApp/main/running.gif"></td>
     <td><img src="https://raw.githubusercontent.com/semjonG/VK-TrainingApp/main/1.png"></td>
     <td><img src="https://raw.githubusercontent.com/semjonG/VK-TrainingApp/main/2.png"></td>
   </tr>
