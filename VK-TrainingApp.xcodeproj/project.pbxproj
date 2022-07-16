@@ -26,7 +26,6 @@
 		046970262860E51D0030EA20 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046970252860E51D0030EA20 /* NewsVC.swift */; };
 		046970282860E5450030EA20 /* NewsAuthorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046970272860E5450030EA20 /* NewsAuthorCell.swift */; };
 		0494C125284B8711006E0AEB /* FriendsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0494C124284B8711006E0AEB /* FriendsAPI.swift */; };
-		0494C127284B8ACF006E0AEB /* Networking Layer in Resources */ = {isa = PBXBuildFile; fileRef = 0494C126284B8ACE006E0AEB /* Networking Layer */; };
 		0494C12A284B97CE006E0AEB /* Data+PrettyPrintedJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0494C129284B97CE006E0AEB /* Data+PrettyPrintedJSON.swift */; };
 		0494C12C284B9C28006E0AEB /* UIView+PinEdges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0494C12B284B9C28006E0AEB /* UIView+PinEdges.swift */; };
 		0494C12F284BA3C7006E0AEB /* FriendsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0494C12E284BA3C7006E0AEB /* FriendsResponse.swift */; };
@@ -63,7 +62,6 @@
 		046970252860E51D0030EA20 /* NewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 		046970272860E5450030EA20 /* NewsAuthorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAuthorCell.swift; sourceTree = "<group>"; };
 		0494C124284B8711006E0AEB /* FriendsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsAPI.swift; sourceTree = "<group>"; };
-		0494C126284B8ACE006E0AEB /* Networking Layer */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Networking Layer"; path = "VK-TrainingApp/Networking Layer"; sourceTree = SOURCE_ROOT; };
 		0494C129284B97CE006E0AEB /* Data+PrettyPrintedJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+PrettyPrintedJSON.swift"; sourceTree = "<group>"; };
 		0494C12B284B9C28006E0AEB /* UIView+PinEdges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+PinEdges.swift"; sourceTree = "<group>"; };
 		0494C12E284BA3C7006E0AEB /* FriendsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsResponse.swift; sourceTree = "<group>"; };
@@ -156,7 +154,6 @@
 		041199E12819643A00287769 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				0494C126284B8ACE006E0AEB /* Networking Layer */,
 				041199E22819647900287769 /* Session.swift */,
 				0494C124284B8711006E0AEB /* FriendsAPI.swift */,
 				0494C1342850EAB8006E0AEB /* GroupsAPI.swift */,
@@ -317,7 +314,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				041199D72818869E00287769 /* LaunchScreen.storyboard in Resources */,
-				0494C127284B8ACF006E0AEB /* Networking Layer in Resources */,
 				041199D42818869E00287769 /* Assets.xcassets in Resources */,
 				041199D22818869C00287769 /* Main.storyboard in Resources */,
 			);
