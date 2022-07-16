@@ -61,12 +61,18 @@ extension FriendsVC: UITableViewDelegate {
 
         UIView.animate(withDuration: 0.2, animations: {
             let cell = tableView.cellForRow(at: indexPath)
-            cell?.frame = CGRect(x: (cell?.frame.origin.x)!-15, y: (cell?.frame.origin.y)!, width: cell!.bounds.size.width, height: cell!.bounds.size.height)
+            cell?.frame = CGRect(x: (cell?.frame.origin.x)!-15,
+                                 y: (cell?.frame.origin.y)!,
+                                 width: cell!.bounds.size.width,
+                                 height: cell!.bounds.size.height)
 
         }) { (finished) in
             UIView.animate(withDuration: 0.3, animations: {
                 let cell = tableView.cellForRow(at: indexPath)
-                cell?.frame = CGRect(x: (cell?.frame.origin.x)!+15, y: (cell?.frame.origin.y)!, width: cell!.bounds.size.width, height: cell!.bounds.size.height)
+                cell?.frame = CGRect(x: (cell?.frame.origin.x)!+15,
+                                     y: (cell?.frame.origin.y)!,
+                                     width: cell!.bounds.size.width,
+                                     height: cell!.bounds.size.height)
             })
             tableView.deselectRow(at: indexPath, animated: true)
         }
