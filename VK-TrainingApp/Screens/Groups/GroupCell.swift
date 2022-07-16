@@ -47,7 +47,6 @@ class GroupCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-
     // MARK: - cell shadow
     override func layoutSubviews() {
         contentView.backgroundColor = UIColor.clear

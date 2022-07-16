@@ -56,6 +56,20 @@ extension PhotosVC: UICollectionViewDelegate {
         collectionView.deselectItem(at: indexPath, animated: true)
         print("нажатие", indexPath.row)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        UIView.animate(withDuration: 0.2) {
+            cell?.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        UIView.animate(withDuration: 0.2) {
+            cell?.transform = .identity
+        }
+    }
 }
 
 extension PhotosVC: UICollectionViewDataSource {

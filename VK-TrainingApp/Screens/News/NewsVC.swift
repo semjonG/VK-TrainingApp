@@ -22,7 +22,6 @@ class NewsVC: UIViewController {
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
-        
         tableView.delegate = self
         tableView.dataSource = self
         //        tableView.prefetchDataSource = self

@@ -16,6 +16,8 @@
 		041199E32819647900287769 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041199E22819647900287769 /* Session.swift */; };
 		041199E52819667500287769 /* FriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041199E42819667500287769 /* FriendsVC.swift */; };
 		04176F6E287DB8AD00A8FFBF /* PostCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04176F6D287DB8AD00A8FFBF /* PostCellModel.swift */; };
+		04176F74287F301500A8FFBF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 04176F73287F301500A8FFBF /* SnapKit */; };
+		04176F822882DBC600A8FFBF /* UITableViewCell + Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04176F812882DBC600A8FFBF /* UITableViewCell + Animation.swift */; };
 		046970182858DAA30030EA20 /* PhotosAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046970172858DAA30030EA20 /* PhotosAPI.swift */; };
 		0469701A2858DC780030EA20 /* PhotosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046970192858DC780030EA20 /* PhotosVC.swift */; };
 		0469701C2858F01D0030EA20 /* PhotosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0469701B2858F01D0030EA20 /* PhotosResponse.swift */; };
@@ -53,6 +55,7 @@
 		041199E22819647900287769 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		041199E42819667500287769 /* FriendsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsVC.swift; sourceTree = "<group>"; };
 		04176F6D287DB8AD00A8FFBF /* PostCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellModel.swift; sourceTree = "<group>"; };
+		04176F812882DBC600A8FFBF /* UITableViewCell + Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell + Animation.swift"; sourceTree = "<group>"; };
 		046970172858DAA30030EA20 /* PhotosAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosAPI.swift; sourceTree = "<group>"; };
 		046970192858DC780030EA20 /* PhotosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosVC.swift; sourceTree = "<group>"; };
 		0469701B2858F01D0030EA20 /* PhotosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosResponse.swift; sourceTree = "<group>"; };
@@ -83,6 +86,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04C77B84287D933800E84047 /* SDWebImage in Frameworks */,
+				04176F74287F301500A8FFBF /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +211,7 @@
 			children = (
 				0494C129284B97CE006E0AEB /* Data+PrettyPrintedJSON.swift */,
 				0494C12B284B9C28006E0AEB /* UIView+PinEdges.swift */,
+				04176F812882DBC600A8FFBF /* UITableViewCell + Animation.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 			name = "VK-TrainingApp";
 			packageProductDependencies = (
 				04C77B83287D933800E84047 /* SDWebImage */,
+				04176F73287F301500A8FFBF /* SnapKit */,
 			);
 			productName = "VK-TrainingApp";
 			productReference = 041199C72818869C00287769 /* VK-TrainingApp.app */;
@@ -297,6 +303,7 @@
 			mainGroup = 041199BE2818869C00287769;
 			packageReferences = (
 				04C77B82287D933800E84047 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				04176F72287F301500A8FFBF /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 041199C82818869C00287769 /* Products */;
 			projectDirPath = "";
@@ -334,6 +341,7 @@
 				046970282860E5450030EA20 /* NewsAuthorCell.swift in Sources */,
 				0469701C2858F01D0030EA20 /* PhotosResponse.swift in Sources */,
 				046970262860E51D0030EA20 /* NewsVC.swift in Sources */,
+				04176F822882DBC600A8FFBF /* UITableViewCell + Animation.swift in Sources */,
 				0494C1372850F336006E0AEB /* GroupsVC.swift in Sources */,
 				0494C12C284B9C28006E0AEB /* UIView+PinEdges.swift in Sources */,
 				046970212860DEBB0030EA20 /* NewsAPI.swift in Sources */,
@@ -574,6 +582,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		04176F72287F301500A8FFBF /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		04C77B82287D933800E84047 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
@@ -585,6 +601,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		04176F73287F301500A8FFBF /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04176F72287F301500A8FFBF /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		04C77B83287D933800E84047 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 04C77B82287D933800E84047 /* XCRemoteSwiftPackageReference "SDWebImage" */;
