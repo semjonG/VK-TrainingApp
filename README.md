@@ -13,22 +13,25 @@ More features coming soon! 🚀 Newsfeed under development (95% ready).
 - Programmatically
 - SPM
   
-  
-    <table>
+<table>
   <tr>
+    <td>Running</td>
     <td>Authorization (WebKit)</td>
-    <td>Friends and city</td>
+    <td>Friends + city & status (TableView)</td>
   </tr>
   <tr>
-    <td><img src="https://github.com/semjonG/VK-TrainingApp/blob/main/0.png"></td>
-    <td><img src="https://github.com/semjonG/VK-TrainingApp/blob/main/1.png"></td>
+    <td><img src="https://raw.githubusercontent.com/semjonG/VK-TrainingApp/main/running.gif"></td>
+    <td><img src="https://raw.githubusercontent.com/semjonG/VK-TrainingApp/main/1.png"></td>
+    <td><img src="https://raw.githubusercontent.com/semjonG/VK-TrainingApp/main/2.png"></td>
   </tr>
   <tr>
-    <td>Communities</td>
-    <td>User photos</td>
+    <td>Communities (TableView)</td>
+    <td>User photos (CollectionView)</td>
+    <td>Newsfeed (TableView)</td>
   </tr>
   <tr>
-    <td><img src="https://github.com/semjonG/VK-TrainingApp/blob/main/2.png"></td>
-    <td><img src="https://github.com/semjonG/VK-TrainingApp/blob/main/3.png"></td>
+    <td><img src="https://raw.githubusercontent.com/semjonG/VK-TrainingApp/main/3.png"></td>
+    <td><img src="https://raw.githubusercontent.com/semjonG/VK-TrainingApp/main/4.png"></td>
+    <td><img src="https://raw.githubusercontent.com/semjonG/VK-TrainingApp/main/5.png"></td>
   </tr>
  </table>
