@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-class NewsAuthorCell: UITableViewCell {
+final class NewsAuthorCell: UITableViewCell {
     
     static let identifier = "NewsAuthorCell"
 

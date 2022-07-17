@@ -7,7 +7,7 @@
 
 import Foundation
 
-class GroupsAPI {
+final class GroupsAPI {
     
     func fetchGroups(offset: Int = 0, completion: @escaping (Result<[Group], Error>) -> ()) {
         var components = URLComponents()

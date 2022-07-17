@@ -9,7 +9,7 @@ import UIKit
 import SDWebImage
 import SnapKit
 
-class FriendCell: UITableViewCell {
+final class FriendCell: UITableViewCell {
     
     static let identifier = "FriendCell"
         

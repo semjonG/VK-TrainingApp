@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-class GroupCell: UITableViewCell {
+final class GroupCell: UITableViewCell {
     
     static let identifier = "GroupCell"
 

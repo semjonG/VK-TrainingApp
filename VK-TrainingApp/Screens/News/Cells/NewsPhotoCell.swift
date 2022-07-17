@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-class NewsPhotoCell: UITableViewCell {
+final class NewsPhotoCell: UITableViewCell {
     
     static let identifier = "NewsPhotoCell"
     

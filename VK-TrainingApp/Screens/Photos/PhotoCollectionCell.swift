@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-class PhotoCollectionCell: UICollectionViewCell {
+final class PhotoCollectionCell: UICollectionViewCell {
     static let identifier = "PhotoCollectionCell"
     
     lazy var backView: UIView = {

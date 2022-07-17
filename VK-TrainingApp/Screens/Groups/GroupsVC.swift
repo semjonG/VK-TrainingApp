@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GroupsVC: UIViewController {
+final class GroupsVC: UIViewController {
     
     var groupsAreLoading = false
     var groupsAPI = GroupsAPI()

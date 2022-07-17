@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PhotosVC: UIViewController {
+final class PhotosVC: UIViewController {
     
     var photosAPI = PhotosAPI()
     var photosArray: Array<Photo> = []

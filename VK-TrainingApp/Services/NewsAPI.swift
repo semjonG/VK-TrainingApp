@@ -8,7 +8,7 @@
 import Foundation
 // класс-сервис (класс с бизнес логикой, туда будем складывать запросы для фотографий)
 
-class NewsAPI {
+final class NewsAPI {
 
     func fetchNews(offset: Int = 0, completion: @escaping (Result<[PostCellModel], Error>) -> ()) {
 
@@ -63,14 +63,11 @@ class NewsAPI {
                         authorImageUrl = profile?.photo100 ?? ""
                     }
                     
-                    //let photoUrl = post.photos?.items?.first?.sizes?.last?.url ?? ""
-                    
                     let photoUrl = post.attachments?.first?.photo?.sizes?.last?.url ?? ""
                     
                     let text = post.text ?? ""
                     
                     let likesCount = post.likes?.count ?? 0
-                  
                     
                     let postModel = PostCellModel(authorImageUrl: authorImageUrl,
                                                   authorName: authorName,

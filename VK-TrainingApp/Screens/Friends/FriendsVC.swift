@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FriendsVC: UIViewController {
+final class FriendsVC: UIViewController {
     // Состояние-1: запрос НЕ запущен
     var friendsAreLoading = false
     

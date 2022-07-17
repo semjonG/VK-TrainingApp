@@ -15,7 +15,7 @@ enum NewsItemCell: Int, CaseIterable {
     case likeCount
 }
 
-class NewsVC: UIViewController {
+final class NewsVC: UIViewController {
     
     var newsAPI = NewsAPI()
     var newsArray: [PostCellModel] = []

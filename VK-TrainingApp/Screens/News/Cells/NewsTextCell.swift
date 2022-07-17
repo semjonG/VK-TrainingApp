@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewsTextCell: UITableViewCell {
+final class NewsTextCell: UITableViewCell {
     
     static let identifier = "NewsTextCell"
  

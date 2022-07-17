@@ -7,7 +7,7 @@
 
 import Foundation
 // класс-сервис (класс с бизнес логикой, туда будем складывать запросы для фотографий)
-class PhotosAPI {
+final class PhotosAPI {
     
     func fetchPhotos(offset: Int = 0, completion: @escaping (Result<[Photo], Error>) -> ()) {
         

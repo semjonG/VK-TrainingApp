@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FriendsAPI {
+final class FriendsAPI {
     
     func fetchFriends(offset: Int = 0, completion: @escaping (Result<[Friend], Error>) -> ()) {
         
