@@ -10,6 +10,7 @@ More features coming soon! 🚀 Newsfeed under development (99% ready).
 - WebKit
 - URLSession
 - SDWebImage
+- SnapKit
 - Programmatically
 - SPM
   
