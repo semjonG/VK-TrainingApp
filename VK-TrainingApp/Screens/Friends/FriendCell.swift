@@ -7,7 +7,6 @@
 
 import UIKit
 import SDWebImage
-import SnapKit
 
 final class FriendCell: UITableViewCell {
     

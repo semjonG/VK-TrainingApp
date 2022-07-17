@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import SnapKit
 
 final class GroupCell: UITableViewCell {
     
@@ -30,7 +31,7 @@ final class GroupCell: UITableViewCell {
     lazy var logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.cornerRadius = 40
+        imageView.layer.cornerRadius = 30
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -80,20 +81,35 @@ final class GroupCell: UITableViewCell {
     
     private func setupConstraints() {
         backView.pinEdgesToSuperView(top: 10, bottom: 10, left: 20, right: 20)
+        
+        logoImageView.snp.makeConstraints { make in
+            make.height.width.equalTo(60)
+            make.left.equalTo(backView.snp_leftMargin).offset(10)
+            make.top.equalTo(backView.snp_topMargin).offset(10)
+            make.bottom.equalTo(backView.snp_bottomMargin).offset(-10)
+        }
+
+        nameLabel.snp.makeConstraints { make in
+            make.top.equalTo(backView.snp_topMargin).offset(20)
+            make.bottom.equalTo(backView.snp_bottomMargin).offset(-20)
+            make.left.equalTo(logoImageView.snp_rightMargin).offset(20)
+            make.right.equalTo(backView.snp_rightMargin).offset(-20)
+        }
+
         // нельзя устанавливать констрейнты, пока на вью не добавлен элемент
-        NSLayoutConstraint.activate([
-            
-            logoImageView.widthAnchor.constraint(equalToConstant: 80),
-            logoImageView.heightAnchor.constraint(equalToConstant: 80),
-            logoImageView.leftAnchor.constraint(equalTo: backView.leftAnchor, constant: 25),
-            logoImageView.topAnchor.constraint(equalTo: backView.topAnchor, constant: 20),
-            logoImageView.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -20),
-            
-            nameLabel.topAnchor.constraint(equalTo: backView.topAnchor, constant: 20),
-            nameLabel.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -20),
-            nameLabel.leftAnchor.constraint(equalTo: logoImageView.rightAnchor, constant: 20),
-            nameLabel.rightAnchor.constraint(equalTo: backView.rightAnchor, constant: -20)
-        ])
+//        NSLayoutConstraint.activate([
+//
+//            logoImageView.widthAnchor.constraint(equalToConstant: 80),
+//            logoImageView.heightAnchor.constraint(equalToConstant: 80),
+//            logoImageView.leftAnchor.constraint(equalTo: backView.leftAnchor, constant: 25),
+//            logoImageView.topAnchor.constraint(equalTo: backView.topAnchor, constant: 20),
+//            logoImageView.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -20),
+//
+//            nameLabel.topAnchor.constraint(equalTo: backView.topAnchor, constant: 20),
+//            nameLabel.bottomAnchor.constraint(equalTo: backView.bottomAnchor, constant: -20),
+//            nameLabel.leftAnchor.constraint(equalTo: logoImageView.rightAnchor, constant: 20),
+//            nameLabel.rightAnchor.constraint(equalTo: backView.rightAnchor, constant: -20)
+//        ])
     }
 }
 
